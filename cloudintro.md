@@ -1,5 +1,5 @@
 ### Introduction to cloud
-### 10.13
+### 10.13.2020
 
 ---
 
@@ -246,3 +246,87 @@ Azure VNET＆Subnet＆VM
 
 >>>
 
+### NAT gateway & Bastionホスト
+- PrivateなVM向けのサービス
+- Bastion(踏み台)ホストもサービスの一つとして用意されています。
+- Bastionホスト用のsubnetを作成する必要があります。
+
+>>>
+
+NAT gateway & Bastionホスト
+![azure-nat-bastion](./img/azure-nat-bastion.PNG)
+
+>>>
+
+### Web/AP/DBアーキテクチャ
+- Azureでは例えば以下のようになります。  
+![azure-3tier](./img/azure-3tier.png)
+
+>>>
+
+### ApplicationGateway
+- L7ロードバランサです。
+- マルチゾーンへの負荷分散ができます。
+
+>>>
+
+### SQL Database
+- マネードサービスのDBです。
+- 次回以降に説明します。
+
+>>>
+
+#### セキュリティグループ
+- Azureにもあります。
+- サブネット、ネットワークインタフェースに設定することができます。
+
+---
+
+### GCP
+- まずはネットワークを構築するところは他のクラウドと同じです。
+- VPCと呼ばれるプライベートなネットワークを構築します。
+
+>>>
+
+#### GCP VPC&Subnet&VM
+![gcp-vpc](./img/gcp-vpc.png)
+
+>>>
+
+- AWS、Azureと違ってGCPのVPCはリージョンを跨ぐことができます。  
+- 一つのVPCでリージョン間の相互接続が可能です。  
+- **凄い**
+
+>>>
+
+privateなインスタンスに対するNAT、Bastion(踏み台)の考え方は同じです。  
+Bastionは省略してしまっています。  
+![gcp-vpc-nat](./img/gcp-vpc-nat.png)
+
+>>>
+
+#### Web/AP/DBアーキテクチャ
+- ComputeEngineに負荷分散する際はインスタンスグループを作成する必要があります。
+![gcp-3tier](./img/gpc-3tier.png)
+
+>>>
+
+### Cloud Load Balancing
+- GCPのロードバランサです。
+- 他のベンダと異なり複数リージョンへの負荷分散も可能です。
+
+>>>
+
+### Cloud SQL
+- マネードサービスのDBです。
+- 次回以降に説明します。
+
+>>>
+
+### ファイアウォール
+- 他のベンダと同様な制御ができます。
+- ネットワークタグをVMに付与してFWではタグに対して制御設定をします。
+
+---
+
+長くなりましたが、以上になります！
